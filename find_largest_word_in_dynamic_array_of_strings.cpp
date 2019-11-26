@@ -10,7 +10,7 @@ int main(void){
     arr[2] = "12345";
     arr[3] = "123456";
     arr[4] = "1234567";
-    for(int i = 0; i < 5; i++) {
+    for(int i = 0; i < size; i++) {
         if (arr[i] > maxString) {
             maxString = arr [i];
         }  
