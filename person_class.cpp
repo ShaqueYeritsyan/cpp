@@ -10,7 +10,7 @@ public:
 
   public:
     // Constructor
-    Person(int IDnum, std::string N, int year, std::string gender1) { 
+    Person(int IDnum, const std::string& N, int year, const std::string& gender1) { 
         name = N;
         birthYear = year;
         gender = gender1;
@@ -38,6 +38,7 @@ public:
     }
         
     void print() {
+        std::cout<<name<< ", " <<gender << ", " <<birthYear << ", " ;
         std::cout << "id:";
         for (int i = 0; i < IDnum; ++i) {
             std::cout << id[i];
@@ -52,15 +53,13 @@ public:
 
 int main() {
     Person man(5, "Tom", 1984, "M"); 
-    std::cout<<man.name<< ", " << man.gender << ", " <<man.birthYear << ", " ;
     man.print();
+
     Person woman(7, "Lily", 1100, "F");
-    std::cout<<woman.name<< ", " << woman.gender << ", " <<woman.birthYear << ", " ;
     woman.print();
 
     //Set the same ID
     man = woman;
-    std::cout<<man.name<< ", " << man.gender << ", " <<man.birthYear << ", " ;
     man.print();
 
 
