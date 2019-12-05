@@ -1,3 +1,4 @@
+// Members:private, Methods:public
 #include <iostream>
 
 class A {
@@ -5,7 +6,8 @@ class A {
     A() {
         std::cout<<  " Constructor A"<<"\n";
     }
-    
+
+    public:
     ~A() {
         std::cout<< "Destructor A" << "\n";
     }
@@ -17,6 +19,7 @@ class C {
         std::cout<<  " Constructor C"<<"\n";
     }
     
+    public:
     ~C() {
         std::cout<< "Destructor C" << "\n";
     }
@@ -27,9 +30,11 @@ class B : public C {
     B() {
         std::cout<<  " Constructor B"<<"\n";
     }
-        
-    A a;
     
+    private:    
+    A a;
+
+    public:
     ~B() {
         std::cout<< "Destructor B" << "\n";
     }
