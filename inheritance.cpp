@@ -7,7 +7,6 @@ class A {
         std::cout<<  " Constructor A"<<"\n";
     }
 
-    public:
     ~A() {
         std::cout<< "Destructor A" << "\n";
     }
@@ -19,22 +18,21 @@ class C {
         std::cout<<  " Constructor C"<<"\n";
     }
     
-    public:
     ~C() {
         std::cout<< "Destructor C" << "\n";
     }
 };
 
 class B : public C {
+
+    private:    
+    A a;
+
     public:
     B() {
         std::cout<<  " Constructor B"<<"\n";
     }
     
-    private:    
-    A a;
-
-    public:
     ~B() {
         std::cout<< "Destructor B" << "\n";
     }
