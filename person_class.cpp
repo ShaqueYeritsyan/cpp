@@ -1,7 +1,7 @@
 #include <iostream>
 
 class Person {
-public:
+private:
     int *id;
     int IDnum;
     std::string name;
@@ -10,13 +10,13 @@ public:
 
   public:
     // Constructor
-    Person(int IDnum, const std::string& N, int year, const std::string& gender1) { 
-        name = N;
-        birthYear = year;
-        gender = gender1;
+    Person(int IDnum_, const std::string& N_, int year_, const std::string& gender1_) 
+    : id(new int[IDnum_])
+    , IDnum(IDnum_)
+    , name(N_)
+    , birthYear(year_) 
+    , gender(gender1_) { 
         //this-ov int IDnum, aracnc this-argument IDnum
-        this->IDnum = IDnum;
-        id = new int[IDnum];
         for (int i = 0; i < IDnum; ++i) {
             id[i] = i;
         }
@@ -36,6 +36,13 @@ public:
         }
         return this;
     }
+
+    /* Copy constructor */
+    //https://www.javatpoint.com/cpp-copy-constructor
+    Person (const Person& obj2)
+    {
+        name = obj2.name;
+    }
         
     void print() {
         std::cout<<name<< ", " <<gender << ", " <<birthYear << ", " ;
@@ -45,13 +52,29 @@ public:
         }
         std::cout <<"\n";
     }
+
+    //move constructor 
+    Person (const Person&& obj2) : birthYear(std::move(obj2.birthYear))
+    {
+    }
     
     ~Person() {
         delete [] id;
     }
 };
 
+class student : public Person {
+
+
+};
+
 int main() {
+
+    student Ashot;
+
+
+
+    // operator=
     Person man(5, "Tom", 1984, "M"); 
     man.print();
 
@@ -61,6 +84,16 @@ int main() {
     //Set the same ID
     man = woman;
     man.print();
+
+    //Copy constructor
+    Person child1(2, "Baby1", 2016, "M");
+    Person child2(child1);
+    child2.print();
+
+    //move constructor
+    Person child3(std::move(child1));
+    child3.print();
+
 
 
   return 0;
