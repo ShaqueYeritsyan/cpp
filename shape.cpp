@@ -20,6 +20,7 @@ public:
 };
 
 class Rectangle: public Shape {
+private:
    double width;
    double height;
 
@@ -50,6 +51,7 @@ class Rectangle: public Shape {
 };
 
 class Triangle: public Shape {
+private:
    double a;
    double b;
    double c;
@@ -85,6 +87,7 @@ class Triangle: public Shape {
 };
 
 class Cycle: public Shape {
+private:
    double r;
 
    public:
