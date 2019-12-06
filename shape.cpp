@@ -11,6 +11,9 @@ public:
    int getArea() {return 0;};
    int getperimeter() {return 0;}; 
 
+   Shape(const Shape& value){
+   }
+
    ~Shape() {
    }
 
@@ -29,6 +32,18 @@ class Rectangle: public Shape {
       double getperimeter () {
          return 2 * (width + height);
       }
+
+      Rectangle(const Rectangle& object2) {
+         width = object2.width;
+         height = object2.height;
+      }
+
+      Rectangle* operator=(const Rectangle& object2) {
+         width = object2.width;
+         height = object2.height;
+         return this;
+      }
+
 
       ~Rectangle(){
       }
@@ -50,6 +65,21 @@ class Triangle: public Shape {
          return (a + b + c);
       }
 
+      Triangle(const Triangle& object2) {
+         a = object2.a;
+         b = object2.b;
+         c = object2.c;
+         height_c = object2.height_c;
+      }
+
+      Triangle* operator=(const Triangle& object2) {
+         a = object2.a;
+         b = object2.b;
+         c = object2.c;
+         height_c = object2.height_c;
+         return this;
+      }
+
       ~Triangle(){
       }
 };
@@ -67,12 +97,30 @@ class Cycle: public Shape {
          return 6.28 * r;
       }
 
+      Cycle(const Cycle& object2) {
+         r = object2.r;
+      }
+
+      Cycle* operator=(const Cycle& object2) {
+         r = object2.r;
+         return this;
+      }
       ~Cycle(){
       }
 };
 
-int main(void) {
+int main() {
+
+
    Rectangle Rect(5, 7);
+
+   /*Usage of operator=
+   Rectangle Rect3(5, 5);
+   Rect = Rect3;*/
+
+   /*Usage of Copy constructor
+   Rectangle Rect2(Rect);*/
+
    std::cout << "Rectangle area: " << Rect.getArea() <<"\n";
    std::cout <<"Rectangle Perimeter: " <<Rect.getperimeter() <<"\n";
 
