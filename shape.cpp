@@ -11,6 +11,9 @@ public:
    int getArea() {return 0;};
    int getperimeter() {return 0;}; 
 
+   ~Shape() {
+   }
+
 };
 
 class Rectangle: public Shape {
@@ -25,6 +28,9 @@ class Rectangle: public Shape {
       }
       double getperimeter () {
          return 2 * (width + height);
+      }
+
+      ~Rectangle(){
       }
 };
 
@@ -43,6 +49,9 @@ class Triangle: public Shape {
       double getperimeter () {
          return (a + b + c);
       }
+
+      ~Triangle(){
+      }
 };
 
 class Cycle: public Shape {
@@ -56,6 +65,9 @@ class Cycle: public Shape {
       }
       double getperimeter () {
          return 6.28 * r;
+      }
+
+      ~Cycle(){
       }
 };
 
