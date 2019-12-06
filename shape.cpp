@@ -6,8 +6,12 @@ using namespace std;
 // Abstract class
 class Shape {
 public:
-      virtual int getArea() = 0;
-      virtual int getperimeter () = 0;
+   Shape() {
+   cout<< "Constrictor of shape \n";
+   }
+   int getArea() {return 0;};
+   int getperimeter() {return 0;}; 
+
 };
 
 // Derived class
