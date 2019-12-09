@@ -1,4 +1,4 @@
-/*Գրել class Shape, ժառանգել class Circle, Rectangle, Triangle: 
+/*Inheritence: Գրել class Shape, ժառանգել class Circle, Rectangle, Triangle: 
 Ունենալ մակերես ու պարագիծ հաշվող ֆուկցիաներ Shape class-ում և overload անել derived class-ներում։
 Օգտագործել constructor ները իրար կապելու մելանիզմը*/
 #include <iostream>
