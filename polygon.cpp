@@ -44,6 +44,15 @@ private:
          return this;
       }
 
+      Rectangle(Rectangle && object2) {
+         std::cout <<"Rectangle move constructor \n";
+      }
+    
+      Rectangle& operator= ( Rectangle && object2) {
+        std::cout<<"Move assignment of Rectangle \n";
+        return *this;
+      }
+      
       virtual ~Rectangle(){
       }
 };
@@ -80,11 +89,28 @@ private:
          return this;
       }
 
+      Triangle(Triangle && object2) {
+        std::cout <<"Triangle move constructor \n";
+      }
+        
+      Triangle& operator= ( Triangle && object2) {
+        std::cout<<"Move assignment of Triangle \n";
+        return *this;
+      } 
+
       virtual ~Triangle(){
       }
 };
 
 int main() {
+
+   //usage of move constructor
+   //Rectangle a(3,4);
+   //Rectangle b(std::move(a));
+    
+   //usage of move assignment
+   //Rectangle c(3,4), d(3,4);
+   //d = std::move(c);
 
    Polygon *Rect = new Rectangle(5,7);
    std::cout << "Rectangle area: " << Rect->getArea() <<"\n";
