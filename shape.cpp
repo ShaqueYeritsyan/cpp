@@ -39,10 +39,9 @@ private:
          height = object2.height;
       }
 
-      Rectangle* operator=(const Rectangle& object2) {
+      Rectangle& operator=(const Rectangle& object2) {
          width = object2.width;
          height = object2.height;
-         return this;
       }
 
 
@@ -74,12 +73,11 @@ private:
          height_c = object2.height_c;
       }
 
-      Triangle* operator=(const Triangle& object2) {
+      Triangle& operator=(const Triangle& object2) {
          a = object2.a;
          b = object2.b;
          c = object2.c;
          height_c = object2.height_c;
-         return this;
       }
 
       ~Triangle(){
@@ -104,9 +102,8 @@ private:
          r = object2.r;
       }
 
-      Cycle* operator=(const Cycle& object2) {
+      Cycle& operator=(const Cycle& object2) {
          r = object2.r;
-         return this;
       }
       ~Cycle(){
       }
