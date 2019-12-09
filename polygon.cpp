@@ -89,10 +89,12 @@ int main() {
    Polygon *Rect = new Rectangle(5,7);
    std::cout << "Rectangle area: " << Rect->getArea() <<"\n";
    std::cout <<"Rectangle Perimeter: " <<Rect->getperimeter() <<"\n";
+   delete Rect;
 
    Polygon *Triang = new Triangle(3.0, 4.0, 5.0, 2.4);
    std::cout << "Triangle area: " << Triang->getArea() << "\n";
    std::cout <<"Rectangle Perimeter: " <<Triang->getperimeter() <<"\n";
+   delete Triang;
 
    return 0;
 }
