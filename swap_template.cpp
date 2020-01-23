@@ -15,8 +15,16 @@ class swapTemplate {
         x=y;
         y=temp;
     }
-};
 
+};
+    template <>
+    void swapTemplate<char>::swapnew (char& x, char& y) {
+        std::cout<<"Swap for char: \n";
+        char temp;
+        temp=x;
+        x=y;
+        y=temp;
+    }
 int main()
 {
     swapTemplate <int> swapInt;
