@@ -1,4 +1,4 @@
-g++ -c li2.cpp
+g++ -c lib2.cpp
 
 ar rvs lib2.a lib2.o
 
