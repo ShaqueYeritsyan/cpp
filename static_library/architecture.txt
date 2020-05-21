@@ -1,0 +1,62 @@
+https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html
+
+x86_64-apple-darwin19.4.0
+total 240
+ 8 Readme.md
+56 a.out
+ 8 architecture.txt
+32 lib1.a
+ 8 lib1.cpp
+ 8 lib1.hpp
+32 lib1.o
+32 lib2.a
+ 8 lib2.cpp
+ 8 lib2.hpp
+32 lib2.o
+ 8 static_library.cpp
+
+x86_64-apple-darwin19.4.0 O2 optimization 
+total 232
+ 8 Readme.md
+48 a.out
+ 8 architecture.txt
+32 lib1.a
+ 8 lib1.cpp
+ 8 lib1.hpp
+32 lib1.o
+32 lib2.a
+ 8 lib2.cpp
+ 8 lib2.hpp
+32 lib2.o
+ 8 static_library.cpp
+
+x86_64-apple-darwin19.4.0-gnux32
+total 240
+ 8 Readme.md
+56 a.out
+ 8 architecture.txt
+32 lib1.a
+ 8 lib1.cpp
+ 8 lib1.hpp
+32 lib1.o
+32 lib2.a
+ 8 lib2.cpp
+ 8 lib2.hpp
+32 lib2.o
+ 8 static_library.cpp
+
+
+x86_64-apple-darwin19.4.0-gnux32 O2 optimization
+total 232
+ 8 Readme.md
+48 a.out
+ 8 architecture.txt
+32 lib1.a
+ 8 lib1.cpp
+ 8 lib1.hpp
+32 lib1.o
+32 lib2.a
+ 8 lib2.cpp
+ 8 lib2.hpp
+32 lib2.o
+ 8 static_library.cpp
