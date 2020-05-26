@@ -53,11 +53,11 @@ int main (int argc, char * argv[]) {
     // Print sides
     for(int i = 1; i <= height - 2; ++i) {
         if (i == (height-2)/2+1) {
-            std::cout << std::left << argv[1] << std::setw(width/2) << std::right << argv[1];
+            std::cout << argv[1] << std::setw(width/2) << std::right << argv[1];
             std::cout << std::setw(width/2) << std::right << argv[1]<<"\n";
         }
         else {
-            std::cout << std::setw(width - 1) << std::left << argv[1] << std::right << argv[1] << "\n";
+            std::cout << std::setw(width - 1) << std::left << argv[1]  << argv[1] << "\n";
         }
     }
 
