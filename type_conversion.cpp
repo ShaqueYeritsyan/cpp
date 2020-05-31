@@ -15,37 +15,52 @@ Try at least one example from the following categories:
 For number (8), the value is representable in the destination type of course, but this is just included in the list for completeness wrt. bool.
 Arithmetic types are integer types, floating-point types, character types, and bool.
 
-char-ի բոլոր հնարավոր արժեքները առանց կորուստ կարող են պահվել double-ում
-ինֆորմացիայի կորստով փոխարկումներ պետք է անեք
------------------------------------------------------------------------------------
-source value | destination value | Formula
------------------------------------------------------------------------------------
-double: 5.99 | int: 5            | (Converting to an integer always rounds down)
------------------------------------------------------------------------------------
---------------------------------
---------------------------------
---------------------------------
---------------------------------
---------------------------------
---------------------------------
-bool: 1     | double: 0, float: 0;
-bool: 0
------------------------------------------------------------------------------------
-int: 0       | bool: 0          | if source == 0 then destination == 0
-int: 78      | bool: 1          | else destination == 1
-double: 0.0  | bool: 0          |
-double: 0.75 | bool: 1          |
-double: 16.1 | bool: 1          |
-short: 2     | bool: 1          |
-------------------------------------------------------------------------------------
+*char-ի բոլոր հնարավոր արժեքները առանց կորուստ կարող են պահվել double-ում
+*ինֆորմացիայի կորստով փոխարկումներ պետք է անեք
+--------------------------------------------------------------------------------------------------------------------------
+source value                             | destination value        |                   Formula
+--------------------------------------------------------------------------------------------------------------------------
+unsigned long int: 18446744073709551615  | unsigned int: 4294967295 | output = expected Mod (2 ^32)
+unsigned long int: 10000000000000000000  | unsigned int: 2313682944 | (defined behavior for unsigned destination)
+--------------------------------------------------------------------------------------------------------------------------
+long int: 9223372036854775807            | int: -1                  | Undefined behavior
+long int: 2247483647                     | int: -2047483649         |
+--------------------------------------------------------------------------------------------------------------------------
+long double: 2.2247483647                |double: 2.22475           | Conversion with rounding 
+lond double: 4.712467                    |double: 4.71247           |
+--------------------------------------------------------------------------------------------------------------------------
+double: 5.99                             | int: 5                   | (Converting to an integer always rounds down)
+--------------------------------------------------------------------------------------------------------------------------
+int: 4                                   | float: 4, double: 4      | To have floating-point value you need to 
+                                                                    | multply result by 1.0
+--------------------------------------------------------------------------------------------------------------------------
+int: -6785                               | unsigned: 4294960511     | 2^32 + (signed_value)
+--------------------------------------------------------------------------------------------------------------------------
+unsigned long: 123456789123              | int: -1097262461         | Undefined Behavior
+--------------------------------------------------------------------------------------------------------------------------
+bool: 1                                  | double: 1, float: 1,     | true = 1, false = 0
+                                         | char: empty              |
+bool: 0                                  | double: 0, float: 0,     | Why bool to char is empty? 
+                                         | char: empty              |
+--------------------------------------------------------------------------------------------------------------------------
+int: 0                                   | bool: 0                  | if source == 0 then destination == 0
+int: 78                                  | bool: 1                  | else destination == 1
+double: 0.0                              | bool: 0                  |
+double: 0.75                             | bool: 1                  |
+double: 16.1                             | bool: 1                  |
+short: 2                                 | bool: 1                  |
+--------------------------------------------------------------------------------------------------------------------------
 */
+
 #include <iostream>
 
 int main () {
 
-bool t = 0;
-std::cout <<char(t) << "\n";
-
+// Example of type conversion
+//int source = -6785;
+//std::cout <<"Source: " << source << "\n";
+//std::cout <<"Destination: " << unsigned(source) << "\n";
+//std::cout <<"Destination: " << static_cast<unsigned>(source) << "\n";
 
     std::cout << "Size of int: " << sizeof(int) << ". Values: [" <<std::numeric_limits<int>::min() << " ; " << std::numeric_limits<int>::max() << "]\n";
     std::cout << "Size of unsigned int: " << sizeof(unsigned) << ". Values: [" <<std::numeric_limits<unsigned>::min() << " ; " << std::numeric_limits<unsigned>::max() << "]\n";
