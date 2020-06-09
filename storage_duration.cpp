@@ -116,8 +116,6 @@ int main (int argc, char * argv[]) {
     }
 
     unsigned short count = std::stoi(argv[2]);
-    std::cout<<count<<"\n";
-
     createObjects (argv[1], count);
     
     return 0;
