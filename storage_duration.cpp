@@ -105,9 +105,8 @@ int main (int argc, char * argv[]) {
     if (argv[1] == std::string("static")) {
       static anywhere s (argv[1], count);
     }
-    if (argv[1] == std::string("dynamic")) {
-      anywhere *a = new anywhere(argv[1], count);
-      delete a;
-    }
+    //if (argv[1] == std::string("dynamic")) {
+    //  anywhere *a = new anywhere(argv[1], count);
+    //}
     return 0;
 }
