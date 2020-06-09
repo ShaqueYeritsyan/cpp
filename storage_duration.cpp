@@ -63,9 +63,19 @@ void createObjects(std::string type, unsigned short count) {
     return;
   }
     count = count - 1;
-    anywhere obj (type, a);
-    a++;
-    createObjects(type, count);
+
+    if (type == std::string("automatic")) {
+      anywhere obj (type, a);
+      a++;
+      createObjects(type, count);
+    }
+
+    if (type == std::string("dynamic")) {
+      anywhere *obj = new anywhere (type, a);
+      a++;
+      createObjects(type, count);
+      delete obj;
+    }
 }
 
 int main (int argc, char * argv[]) {
