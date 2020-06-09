@@ -63,18 +63,37 @@ void createObjects(std::string type, unsigned short count) {
     return;
   }
     count = count - 1;
-
+  // If the <storage-duration-name> is not one of “automatic”, “static”, “dynamic”, “thread”,
+  // the program should print line Invalid storage duration and quit.
     if (type == std::string("automatic")) {
       anywhere obj (type, a);
       a++;
       createObjects(type, count);
     }
 
-    if (type == std::string("dynamic")) {
+     else if (type == std::string("dynamic")) {
       anywhere *obj = new anywhere (type, a);
       a++;
       createObjects(type, count);
       delete obj;
+    }
+
+    // TO DO
+    else if (type == std::string("thread")) {
+      anywhere obj (type, a);
+      a++;
+      createObjects(type, count);
+    }
+
+    else if (type == std::string("static")) {
+      static anywhere obj (type, a);
+      a++;
+      createObjects(type, count);
+    }
+
+    else {
+      std::cout << "Invalid storage duration \n";
+        return;
     }
 }
 
@@ -101,19 +120,6 @@ int main (int argc, char * argv[]) {
     std::cout << "Invalid count \n";
     return 1;
   }
-
-  // If the <storage-duration-name> is not one of “automatic”, “static”, “dynamic”, “thread”,
-  // the program should print line Invalid storage duration and quit.
-    if (argv[1] != std::string("automatic")) {
-      if (argv[1] != std::string("static")) {
-        if (argv[1] != std::string("dynamic")) {
-          if (argv[1] != std::string("thread")) {
-            std::cout << "Invalid storage duration \n";
-            return 1;
-          }
-        }
-      }
-    }
 
     unsigned short count = std::stoi(argv[2]);
     createObjects (argv[1], count);
