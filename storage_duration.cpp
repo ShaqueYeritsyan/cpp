@@ -57,6 +57,17 @@ private:
    anywhere( anywhere && ) = delete;
 };
 
+void createObjects(std::string type, unsigned short count) {
+  static unsigned short a = 0;
+  if (count == 0) {
+    return;
+  }
+    count = count - 1;
+    anywhere obj (type, a);
+    a++;
+    createObjects(type, count);
+}
+
 int main (int argc, char * argv[]) {
 
   //If the number of command-line arguments is incorrect, the program should print line
@@ -97,20 +108,7 @@ int main (int argc, char * argv[]) {
     unsigned short count = std::stoi(argv[2]);
     std::cout<<count<<"\n";
 
-    if (argv[1] == std::string("automatic")) {
-      for (int i = 0; i < count; ++ i) {
-        anywhere s (argv[1], i);
-      }
-    }
-
-    // if (argv[1] == std::string("static")) {
-    //   static anywhere s (argv[1], count);
-    // }
-
-    // if (argv[1] == std::string("dynamic")) {
-    //   anywhere *a = new anywhere(argv[1], count);
-    //   delete a;
-    // }
+    createObjects (argv[1], count);
     
     return 0;
 }
