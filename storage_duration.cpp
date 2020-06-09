@@ -92,7 +92,7 @@ int main (int argc, char * argv[]) {
   try {
     unsigned short count = std::stoi(argv[2]);
     // If the <count> is greater than 100, the program should print line "Too many requested" and quit.
-    if (count > 100) {
+    if (count > 100 || count < 0 ) {
       std::cout << "Too many requested \n";
       return 1;
     }
