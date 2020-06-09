@@ -41,15 +41,12 @@ public:
       : storage_duration_name_( std::move( storage_duration_name ) )
       , index_( index )
    {
-    for (int i = 0; i < index_; ++i) {
-      std::cout << "constructor " << storage_duration_name_ << ' ' << i << "\n";
-    }
+      std::cout << "constructor " << storage_duration_name_ << ' ' << index_ << "\n";
    }
 
    ~anywhere() {
-    for (int i = index_ -1; i >= 0; --i) {
-    std::cout << "destructor " << storage_duration_name_ << ' ' << i << " \n";
-    }
+    std::cout << "destructor " << storage_duration_name_ << ' ' << index_ << " \n";
+
   }
 
 private:
@@ -99,14 +96,21 @@ int main (int argc, char * argv[]) {
 
     unsigned short count = std::stoi(argv[2]);
     std::cout<<count<<"\n";
+
     if (argv[1] == std::string("automatic")) {
-      anywhere a (argv[1], count);
+      for (int i = 0; i < count; ++ i) {
+        anywhere s (argv[1], i);
+      }
     }
-    if (argv[1] == std::string("static")) {
-      static anywhere s (argv[1], count);
-    }
-    //if (argv[1] == std::string("dynamic")) {
-    //  anywhere *a = new anywhere(argv[1], count);
-    //}
+
+    // if (argv[1] == std::string("static")) {
+    //   static anywhere s (argv[1], count);
+    // }
+
+    // if (argv[1] == std::string("dynamic")) {
+    //   anywhere *a = new anywhere(argv[1], count);
+    //   delete a;
+    // }
+    
     return 0;
 }
