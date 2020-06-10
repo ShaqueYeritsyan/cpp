@@ -79,17 +79,18 @@ void createObjects(std::string type, unsigned short count) {
     }
 
     // TO DO
-    else if (type == std::string("thread")) {
-      anywhere obj (type, a);
-      a++;
-      createObjects(type, count);
-    }
+    //else if (type == std::string("thread")) {
+    // std::thread();
+    //  thread_local anywhere obj (type, a);
+    //  a++;
+    //  createObjects(type, count);
+    //}
 
-    else if (type == std::string("static")) {
-      static anywhere obj (type, a);
-      a++;
-      createObjects(type, count);
-    }
+    //else if (type == std::string("static")) {
+    //    static anywhere obj (type, a);
+    //    a++;
+    //   createObjects(type, count);
+    //}
 
     else {
       std::cout << "Invalid storage duration \n";
