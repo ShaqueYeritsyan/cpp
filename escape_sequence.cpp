@@ -45,7 +45,7 @@ https://en.cppreference.com/w/cpp/language/escape
 */
 
 #include <iostream>
-
+#include <string>
 int main () {
     std::cout<<"\\"<<"\'"<<" "<<"single quote: Welcome\'abroad"<<std::endl;
     std::cout<<"\\"<<"\""<<" "<<"double quote: Welcome\"abroad"<<std::endl;
@@ -63,5 +63,9 @@ int main () {
     std::cout<<"\\"<<"101"<<" "<<"arbitary octal value: "<<"\101"<<std::endl;
     std::cout<<"\\"<<"42"<<" "<<"arbitary hexademical value: "<<"\x42"<<std::endl;
     std::cout<<"\\"<<"uFFFD"<<" "<<"universal character name: "<<"\uFFFD"<<std::endl;
+    // Raw string literal we can use raw strings in which escape characters (like \n \t or \” ) are not processed
+    //c++11 and more
+    std::string rawString = R"(Raw stri\ng literal)";
+    std::cout<<rawString<<std::endl;
     return 0;
 }
