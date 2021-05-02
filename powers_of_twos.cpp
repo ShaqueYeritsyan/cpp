@@ -39,18 +39,12 @@ void powerOfTwos(int n, int k)
     std::vector<int> result;
     while (p >= 0 && k) {
         int val = pow(2, p);
-        //std::cout << "p = " << p << " \n";
         if (n - val < k - 1) {
             p = p - 1;
-            //std::cout<<"val = "<<val<<" \n";
-            //std::cout << "p = " << p << " \n";
             continue;
         	}
         k = k - 1;
-        //std::cout << "k = " << k << " \n";
         n = n - val;
-        //std::cout << "n = "<< n << " \n";
-        //std::cout << p << " power of two \n";
         result.push_back(p);
     }
     std::cout<<"YES ";
